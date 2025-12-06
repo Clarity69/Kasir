@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Toko Cat — Kasir & Invoice Template</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Toko Cat & Perlengkapan</h1>
+    <div id="loginInfo">Kasir: Taro</div>
+  </header>
+
+  <main class="container grid two-col">
+    <section class="card">
+      <h3>Daftar Produk</h3>
+
+      <div class="row" style="margin:8px 0 12px 0;">
+        <input type="text" id="searchBox" placeholder="Cari produk..." />
+      </div>
+
+      <div id="productList" class="product-list"></div>
+
+      <hr style="margin:12px 0;border:none;border-top:1px dashed rgba(255,255,255,0.04)">
+
+      <h4>Tambah Item Baru</h4>
+      <div class="form-grid">
+        <input type="text" id="newKode" placeholder="Kode (ex: P010)" />
+        <input type="text" id="newNama" placeholder="Nama produk" />
+        <input type="number" id="newHarga" placeholder="Harga (angka)" />
+        <label class="checkbox-line"><input type="checkbox" id="newHasColor" /> Memiliki pilihan warna</label>
+      </div>
+      <div style="margin-top:8px;">
+        <button id="btnAddProduct" class="primary" style="width:100%;">Tambah Item</button>
+      </div>
+    </section>
+
+    <aside class="card">
+      <h3>Keranjang Belanja</h3>
+
+      <div id="cartList" class="cart-scroll"></div>
+
+      <div class="row" style="justify-content:space-between;margin-top:10px;">
+        <span class="subtotal">Subtotal:</span>
+        <span id="subtotalValue" class="subtotal">Rp 0</span>
+      </div>
+
+      <div class="row" style="justify-content:space-between;">
+        <span class="total">Total:</span>
+        <span id="totalValue" class="total">Rp 0</span>
+      </div>
+
+      <div style="margin-top:14px;">
+        <button id="btnPrint" class="primary" style="width:100%;">Print Struk</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- print-area akan dibuat oleh script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
