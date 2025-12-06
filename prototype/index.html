@@ -8,8 +8,8 @@
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="Assets/jotun-black.png" alt="Jotun Logo" id="logo" />
+    <div class="Logo">
+      <img src="Assets/jotun-black.png">
     </div>
     <div id="loginInfo">Kasir: Taro</div>
   </header>
@@ -59,7 +59,39 @@
     </aside>
   </main>
 
-  <!-- script -->
+  <!-- Modal: Color Picker with validated palette + custom color -->
+  <div id="colorModal" class="modal-back" aria-hidden="true">
+    <div class="modal card modal-small" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h4 id="modalTitle">Pilih Warna</h4>
+
+      <div class="modal-body">
+        <div id="modalProductName" style="font-weight:600;margin-bottom:8px"></div>
+
+        <label style="display:block;font-size:13px;margin-bottom:6px">Pilih dari palet resmi</label>
+        <div id="swatchContainer" class="swatch-grid" aria-label="Palet warna"></div>
+
+        <div id="modalWarning" style="color:#ffb4b4;font-size:13px;display:none;margin-top:8px">Pilih warna dulu sebelum menambah.</div>
+
+        <hr style="margin:10px 0;border:none;border-top:1px dashed rgba(255,255,255,0.04)">
+
+        <label style="display:block;font-size:13px;margin-bottom:6px">Atau tambah warna kustom</label>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <input type="color" id="modalCustomColor" value="#ffffff" title="Pilih warna kustom" />
+          <input type="text" id="modalCustomName" placeholder="Nama (opsional)" style="padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);min-width:140px" />
+          <button id="modalAddCustom" class="primary">Tambahkan Warna</button>
+        </div>
+
+        <label style="display:block;font-size:13px;margin-top:10px;margin-bottom:6px">Kuantitas</label>
+        <input type="number" id="modalQty" min="1" value="1" style="width:100px;padding:6px;border-radius:6px;border:1px solid rgba(0,0,0,0.08)">
+      </div>
+
+      <div class="modal-actions" style="margin-top:12px;display:flex;gap:8px">
+        <button id="modalCancel">Batal</button>
+        <button id="modalAdd" class="primary">Tambah</button>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

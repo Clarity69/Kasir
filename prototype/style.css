@@ -11,15 +11,15 @@
 *{box-sizing:border-box}
 body{
   margin:0;
-  background:linear-gradient(180deg,#98a3b6 0%, #4a6aab 100%);
+  background:linear-gradient(180deg,#c8cace 0%, #697793 100%);
   color:#e6eef6;
   min-height:100vh;
   padding:18px;
   font-size:14px;
 }
 
-.logo img {
-  height: 40px;
+.Logo img{
+  height:40px;
 }
 
 header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
@@ -59,40 +59,49 @@ button.danger{background:transparent;color:var(--danger);border:1px solid rgba(2
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
 .checkbox-line{display:flex;align-items:center;gap:8px;color:var(--muted)}
 
-/* ---------- print / receipt (58mm thermal) ---------- */
-/* print-only area generated dynamically with id #print-area */
+/* ---------- modal styles ---------- */
+.modal-back{
+  position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+  background: rgba(0,0,0,0.5); z-index:400;
+}
+.modal {
+  min-width:280px; max-width:420px;
+  border-radius:12px; padding:12px; box-shadow:0 12px 36px rgba(0,0,0,0.6);
+}
+.modal-small{background:linear-gradient(180deg,#0b1220,#071021); color:#e6eef6}
+.modal h4{margin:0 0 8px 0}
+.modal-body{padding:6px 0}
+.modal-actions button{min-width:88px}
+
+/* swatch grid */
+.swatch-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:6px;
+}
+.swatch-item{
+  width:36px;height:28px;border-radius:6px;border:2px solid transparent;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.2);
+  display:flex;align-items:center;justify-content:center;
+}
+.swatch-item.selected{outline:3px solid rgba(43,138,239,0.25); transform:translateY(-2px);}
+
+/* label under swatch (hex) */
+.swatch-hex{font-size:11px;color:var(--muted);margin-top:6px;text-align:center}
+
+/* PRINT / RECEIPT (58mm thermal) */
 @media print {
-  @page { size: 58mm auto; margin: 2mm; } /* thermal 58mm */
+  @page { size: 58mm auto; margin: 2mm; }
   body * { visibility: hidden; }
   #print-area, #print-area * { visibility: visible; }
-  #print-area {
-    position: absolute;
-    left: 0; top: 0;
-    width: 58mm;
-    background: #fff;
-    color: #000;
-    font-family: "Courier New", monospace;
-    font-size: 13px;      /* cukup besar untuk thermal */
-    line-height: 1.3;
-    padding: 6px 6px 2px 6px;
-  }
-
-  /* header */
+  #print-area { position: absolute; left:0; top:0; width:58mm; background:#fff; color:#000; font-family: "Courier New", monospace; font-size:13px; line-height:1.3; padding:6px; }
   #print-area .logo { text-align:center; margin-bottom:6px; }
   #print-area .shop-name { font-size:14px; font-weight:700; letter-spacing:0.6px; }
   #print-area .shop-info { font-size:11px; color:#222; margin-bottom:6px; }
-
-  /* table-like layout using blocks — keep monospace alignment */
-  #print-area .items { width:100%; margin-top:4px; }
   #print-area .items .row { display:flex; justify-content:space-between; gap:6px; }
   #print-area .items .left { width: calc(100% - 60px); word-break:break-word; font-size:12px; }
   #print-area .items .right { width:60px; text-align:right; font-size:12px; }
-
   #print-area .divider { border-top:1px dashed #000; margin:6px 0; }
-
   #print-area .total { display:flex; justify-content:space-between; font-weight:700; font-size:13px; margin-top:6px; }
   #print-area .thanks { text-align:center; margin-top:8px; font-size:12px; }
-
-  /* hide anything else */
-  .no-print { display:none !important; }
 }
