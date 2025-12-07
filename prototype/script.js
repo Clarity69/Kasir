@@ -13,8 +13,8 @@ let cart = [];
 /* konfigurasi toko */
 const logoSrc = 'Assets/jotun-black.png';
 const shopName = 'Jotun';
-const shopAddress = 'Jl. Alamat Kamu No. X';
-const shopPhone = 'Telp: 0812xxxxxxx';
+const shopAddress = 'Jl. Selat Selayar, Tj. Laut, Kec. Bontang Selatan';
+const shopPhone = 'Telp: 081369696969';
 
 /* palet warna default */
 let COLOR_PALETTE = [
